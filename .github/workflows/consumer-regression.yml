@@ -1,6 +1,7 @@
-# golden-field 消费回归（VP-023 R4 · 团队化槽位）
-# 触发：手动 dispatch；或主仓发布后 repository_dispatch(published)（需主仓配置 GH token + 本仓 API）。
-# 行为：拉取最新 @magicvr/schema-ui-* 与 apps/api @latest → 双端探针全绿 = 消费回归 PASS。
+# golden-field 消费回归（VP-024 R3 重构 · npmjs 公开发布 · 免凭据）
+# 触发：手动 dispatch；或主仓发布后 repository_dispatch(published)（需主仓配置 + 本仓 GH token）。
+# 行为：apps/api @latest + @magicvr/schema-ui-*（npmjs 公开）→ Go 构建 + serve 冒烟 +
+#       healthz/readyz 轮询 + 四探针全绿 + SIGTERM 干净收尾（断言 shutdown.complete · RT-D02 出口）。
 name: consumer-regression
 
 on:
@@ -13,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GOPROXY: https://proxy.golang.org,direct
-      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -24,27 +24,41 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
 
       - name: 启用 pnpm
         run: corepack enable
 
-      - name: 配置 GH Packages 认证（跨仓读私有包）
-        run: |
-          npm config set "@magicvr:registry" "https://npm.pkg.github.com"
-          npm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.GITHUB_TOKEN }}"
-
-      - name: Go 组合根冒烟（最新 @latest）
+      - name: Go 升级与构建（apps/api @latest · 公共 proxy 免凭据）
         run: |
           go get github.com/magicvr/schema-ui-core/apps/api@latest
-          go run ./cmd/server -dialect sqlite -dsn /tmp/gf-ci.db
+          go mod tidy
+          go build -o gf-server ./cmd/server
 
-      - name: Web 包安装与探针（registry）
+      - name: Web 安装（npmjs 公开 · 无 token；web/.npmrc 已钉 @magicvr → registry.npmjs.org）
         working-directory: web
+        run: pnpm install --frozen-lockfile
+
+      - name: serve 冒烟 + 探针 + SIGTERM 收尾（RT-D02）
         run: |
-          npm config set "@magicvr:registry" "https://npm.pkg.github.com"
-          npm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.GITHUB_TOKEN }}"
-          pnpm install --no-frozen-lockfile
+          ./gf-server -dialect sqlite -dsn /tmp/gf-ci.db -addr 127.0.0.1:25080 > /tmp/gf-ci-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill -TERM $SERVER_PID 2>/dev/null; wait $SERVER_PID 2>/dev/null || true' EXIT
+          ok=0
+          for i in $(seq 1 60); do
+            if curl -sf http://127.0.0.1:25080/healthz >/dev/null 2>&1; then ok=1; break; fi
+            sleep 0.5
+          done
+          if [ "$ok" != "1" ]; then echo "serve 未就绪"; cat /tmp/gf-ci-server.log; exit 1; fi
+          curl -sf http://127.0.0.1:25080/readyz >/dev/null || { echo "readyz 失败"; exit 1; }
+          cd web
           node probe.mjs
           node probe-render.mjs
           node probe-six.mjs
           node token-check.mjs
+          cd ..
+          kill -TERM $SERVER_PID
+          wait $SERVER_PID
+          grep -q 'shutdown.complete' /tmp/gf-ci-server.log || { echo "缺少 shutdown.complete"; exit 1; }
+          echo "consumer-regression PASS · shutdown.complete 断言通过"
