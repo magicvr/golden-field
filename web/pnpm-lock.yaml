@@ -36,25 +36,25 @@ importers:
 packages:
 
   '@magicvr/schema-ui-lib@0.1.0':
-    resolution: {integrity: sha512-tndxpsUGSK3OfaAKpFciXG7mOlphp89QkEgyOL+3ZE5Ju8rVNz37XdnMD1x163z+SFE/VtmmtcKGW48e9OdzMw==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-lib/0.1.0/8eb94804046f0d3dbcb6e556c4c309de97b312d9}
+    resolution: {integrity: sha512-fNhAMTnBS+FEXPipV9zGwwRLSk+roGfOb1UUZgDJMPtftrFx9+pd8jQBOZ115IjDrVx01+aNcPek6lGxT4j6KQ==}
 
   '@magicvr/schema-ui-protocol@0.2.0':
-    resolution: {integrity: sha512-Y0L15JxpHkVCJFI6blnZKAmcXcGMpavbB/lCJPRMB3fu4a1Tzwvj+cg9KbsFm0xqspzMQpGWohaC62VGtA5Mag==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-protocol/0.2.0/8b8565e3e0b5475afaeffb9668b0a10bff56f360}
+    resolution: {integrity: sha512-ik1ldfO86DDGAOibh0KEinKguMW8Icg4MAgXJM4VWF5Zw0X8weiY5VHI4LGYY7A0XNI+IfNLNuI5H7XX5Id1nQ==}
 
   '@magicvr/schema-ui-renderer@0.2.0':
-    resolution: {integrity: sha512-/Ik0oo6y8y8uNR6K8RY+M/7cHXUUPS+J3IgGc+QEPl3GwOmeuYCieWYD4rV9Cm7k6BVPvUbKqlrHL4xIhb1MPw==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-renderer/0.2.0/3f45b621cb9064b88c4d2e38da64e32ab5a41b24}
+    resolution: {integrity: sha512-FDTLmKGn591cqvvy7OipHjbeBQA3VHxrRRjrkoDjD5gKsN7WiWY2AWeztsJFLPQVGnE75UUjYfPpkJ47avuvLQ==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
 
   '@magicvr/schema-ui-shell@0.1.0':
-    resolution: {integrity: sha512-l8DdOL6HVYgxyi2dH0thnfMB0fItCZEs86yiJh+1AYe8HOE04+troUz34u+5BLq14SGY1FOYeCZ9Uufk8QNJdg==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-shell/0.1.0/05196a093dcd4fbde930e17010edac04fe3719f0}
+    resolution: {integrity: sha512-1tbOycPrhJUVtQT91m+TDfa6JD1Ir/dtFEiWi1GtpcB3lVp6CtLtl0DwIZwofE/QfBVQ8urvVml0gX+5f/1fyg==}
 
   '@magicvr/schema-ui-theme@0.1.0':
-    resolution: {integrity: sha512-xl4bO3xECOiPzWV7/cmNUWsws3dDEN3ClooyRcxceQYdxQAzmSojllZ+rs9rB3I18yil2xmdWccWWHiX/B7xag==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-theme/0.1.0/7af1ea76388da0f8186b53db3e4a24da30df3c91}
+    resolution: {integrity: sha512-0MwoERBBR0fcYprN259HqL9sG+fHbdBFNbMKjHeoEs8VqsEmaJaMjsS+u6Y0p/Ugiy1/P5qzaqO/JZj7mHpHzw==}
 
   '@magicvr/schema-ui-ui@0.1.0':
-    resolution: {integrity: sha512-dxXrMUzzsE0/+KoHx0tOVbNLGLCaSc620jXHb6wcR+dFajGjBPeayfrM5AjCnWnZuLfPvpgbymLIrCieXvTqjA==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-ui/0.1.0/4f4a89f25a814acd9ec23295809e911a0663c98c}
+    resolution: {integrity: sha512-3ekAUzBrYqKOG4c24dontRd/zF8VfYTbqIa3GyJvZTAxh6Yehm8Oj2aQxD5iB4vKVdkHj13qyCLVmWaB9g+rXA==}
 
   react-dom@19.2.8:
     resolution: {integrity: sha512-rVprimfGBG3DR+Tq0IQG2DT5PxKth1WIGDmj5yPmlzr4YBe7uyE+Du4oVqTDXZSHGGGXRtTJEGSSePyQCMBglQ==}
