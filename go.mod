@@ -2,7 +2,7 @@ module github.com/magicvr/golden-field
 
 go 1.26
 
-require github.com/magicvr/schema-ui-core/apps/api v0.0.2
+require github.com/magicvr/schema-ui-core/apps/api v0.1.0
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
@@ -28,6 +28,6 @@ require (
 	modernc.org/sqlite v1.55.0 // indirect
 )
 
-// R1 占位（VP-023 判据 #1）：真实发布通道实证（origin tag + go get/proxy）完成前
 // 以本地 replace 消费；实证完成后移除本行并提交留痕（golden-field 全程 registry 语义）。
-replace github.com/magicvr/schema-ui-core/apps/api => ../schema-ui-core/apps/api
+
+// R1 实证（2026-08-29）：origin tag v0.1.0 已推送；本仓经公共 Go proxy 消费，无 replace。
