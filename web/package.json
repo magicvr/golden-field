@@ -4,6 +4,7 @@
   "type": "module",
   "version": "0.2.0",
   "description": "golden-field 前端骨架（VP-024 R2）——@magicvr/schema-ui-* 六包 npmjs 公开发布消费（无凭据）",
+  "packageManager": "pnpm@11.11.0",
   "dependencies": {
     "@magicvr/schema-ui-lib": "0.1.0",
     "@magicvr/schema-ui-protocol": "0.2.0",
