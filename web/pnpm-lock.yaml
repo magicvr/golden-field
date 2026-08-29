@@ -9,23 +9,23 @@ importers:
   .:
     dependencies:
       '@magicvr/schema-ui-lib':
-        specifier: 0.1.9
-        version: 0.1.9
+        specifier: 0.1.10
+        version: 0.1.10(react@19.2.8)
       '@magicvr/schema-ui-protocol':
         specifier: 0.2.11
         version: 0.2.11
       '@magicvr/schema-ui-renderer':
-        specifier: 0.3.7
-        version: 0.3.7
+        specifier: 0.3.8
+        version: 0.3.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(@magicvr/schema-ui-protocol@0.2.11)(@magicvr/schema-ui-ui@0.1.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@magicvr/schema-ui-shell':
-        specifier: 0.1.2
-        version: 0.1.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: 0.1.4
+        version: 0.1.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@magicvr/schema-ui-theme':
-        specifier: 0.1.2
-        version: 0.1.2
+        specifier: 0.1.4
+        version: 0.1.4
       '@magicvr/schema-ui-ui':
-        specifier: 0.1.7
-        version: 0.1.7(react@19.2.8)
+        specifier: 0.1.8
+        version: 0.1.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react:
         specifier: ^19.2.0
         version: 19.2.8
@@ -35,26 +35,38 @@ importers:
 
 packages:
 
-  '@magicvr/schema-ui-lib@0.1.9':
-    resolution: {integrity: sha512-ooNN2oRk5xygbftV3WzXG2xkOo3lxYWNBNghF1K2kp+719zrqN64iwUvLY9KxFSOoq9XKZUmNi4q0Lu1OAcRKw==}
+  '@magicvr/schema-ui-lib@0.1.10':
+    resolution: {integrity: sha512-n96MYnvaZAWbHejZgaTC6GGA2O3Zbz5GXLyazp08wyP/AOOIuh1spqt5tTIzkiu5+zLqimTkFlGBxRgtHSEthA==}
+    peerDependencies:
+      react: ^19.0.0
 
   '@magicvr/schema-ui-protocol@0.2.11':
     resolution: {integrity: sha512-ac4DHz0CUGtz2JxGqxRB1lHOJHXRzO378vqMKeB3Ur16d3Z/mRSE3FGlx5S60qsy5+1kZ7ZlKimRCEJ8LvribQ==}
 
-  '@magicvr/schema-ui-renderer@0.3.7':
-    resolution: {integrity: sha512-dZds/k289jPwFiU2nOEZ9WE2t9kAiGkcizAsw9V3g++HE5TZ5Mf372Oa/mrCXdfCTRAO/INHW7+vrs2ho+fT5Q==}
+  '@magicvr/schema-ui-renderer@0.3.8':
+    resolution: {integrity: sha512-PD7Kr7fXSjYHRAiynCm31lialIMkW25CFHbLeB6IXAjBeEQAoRltLHZI13QFafXoSjXWfU4XjCJdUb1e42idFg==}
+    peerDependencies:
+      '@magicvr/schema-ui-lib': ^0.1.10
+      '@magicvr/schema-ui-protocol': ^0.2.11
+      '@magicvr/schema-ui-ui': ^0.1.8
+      react: ^19.0.0
+      react-dom: ^19.0.0
 
-  '@magicvr/schema-ui-shell@0.1.2':
-    resolution: {integrity: sha512-KBWze0G7jtPtBgnDlEwky839BTNg55D2E6Eoe/W0pPduz3JVDyD8ZYsGLNUw8qCL/OIluCF0sQpJ0tEX2IroHA==}
+  '@magicvr/schema-ui-shell@0.1.4':
+    resolution: {integrity: sha512-wnbhqo9ZtF+JM6GSAeCVjekzw+O5yYfYBCLToE8mrdVscgSnw2CacysVbQ8l5lEYbzZPw4kUD3wlOS146c/1jA==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  '@magicvr/schema-ui-theme@0.1.2':
-    resolution: {integrity: sha512-Wxh8Q+fDnXKeVCF7QTiaH1QW9D6u4bUmkoIZPapKqFTfJVBQDVUkO7eAf4whea5wXiD5l2o6QNQ3ro+jg9HPyQ==}
+  '@magicvr/schema-ui-theme@0.1.4':
+    resolution: {integrity: sha512-pxt6Cm+/x248fdBFbQoim9z6y7t2IJsIJNyIpYqr/gQjS9OSukV2OICBIzIg3ird0eGStLXw6W5HHhYg3f2t3A==}
 
-  '@magicvr/schema-ui-ui@0.1.7':
-    resolution: {integrity: sha512-tTDW+VwXrkOjeglAghSFBiPG4juO0B36j32rknw3g0hrxW28U3GQbu8pesOQwnPh7/uh9qPp1u7gIoU9ERZxZQ==}
+  '@magicvr/schema-ui-ui@0.1.8':
+    resolution: {integrity: sha512-6qV3vwny7scRtsbIDARmeAdqXbrERCwf8lI4uvTK6T7OHTK1M8CIOevNKI2UfIfvZGGaWjO1gGk03nNAZMgVkA==}
+    peerDependencies:
+      '@magicvr/schema-ui-lib': ^0.1.10
+      react: ^19.0.0
+      react-dom: ^19.0.0
 
   '@radix-ui/react-compose-refs@1.1.5':
     resolution: {integrity: sha512-+48PbAAbq3didjJxa+OaWY2ZwgAKsNiRGyeHKszblZMQ+kcpd9pAaT11cMkGEie0vsOi3QdeTE6d5Fe3Gn61kA==}
@@ -119,34 +131,43 @@ packages:
 
 snapshots:
 
-  '@magicvr/schema-ui-lib@0.1.9':
+  '@magicvr/schema-ui-lib@0.1.10(react@19.2.8)':
     dependencies:
       clsx: 2.1.1
+      react: 19.2.8
       tailwind-merge: 3.6.0
 
   '@magicvr/schema-ui-protocol@0.2.11':
     dependencies:
       ajv: 8.20.0
 
-  '@magicvr/schema-ui-renderer@0.3.7': {}
+  '@magicvr/schema-ui-renderer@0.3.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(@magicvr/schema-ui-protocol@0.2.11)(@magicvr/schema-ui-ui@0.1.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@magicvr/schema-ui-lib': 0.1.10(react@19.2.8)
+      '@magicvr/schema-ui-protocol': 0.2.11
+      '@magicvr/schema-ui-ui': 0.1.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
 
-  '@magicvr/schema-ui-shell@0.1.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@magicvr/schema-ui-shell@0.1.4(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@magicvr/schema-ui-theme@0.1.2': {}
+  '@magicvr/schema-ui-theme@0.1.4': {}
 
-  '@magicvr/schema-ui-ui@0.1.7(react@19.2.8)':
+  '@magicvr/schema-ui-ui@0.1.8(@magicvr/schema-ui-lib@0.1.10(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
+      '@magicvr/schema-ui-lib': 0.1.10(react@19.2.8)
       '@radix-ui/react-slot': 1.3.3(react@19.2.8)
       class-variance-authority: 0.7.1
       clsx: 2.1.1
       lucide-react: 0.525.0(react@19.2.8)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
       tailwind-merge: 3.6.0
     transitivePeerDependencies:
       - '@types/react'
-      - react
 
   '@radix-ui/react-compose-refs@1.1.5(react@19.2.8)':
     dependencies:

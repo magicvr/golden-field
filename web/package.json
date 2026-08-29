@@ -6,12 +6,12 @@
   "description": "golden-field 前端骨架（VP-024 R5 终版）——六包 final（exports ./ 合法 · 子路径 tsc 产物）",
   "packageManager": "pnpm@11.11.0",
   "dependencies": {
-    "@magicvr/schema-ui-lib": "0.1.9",
+    "@magicvr/schema-ui-lib": "0.1.10",
     "@magicvr/schema-ui-protocol": "0.2.11",
-    "@magicvr/schema-ui-renderer": "0.3.7",
-    "@magicvr/schema-ui-shell": "0.1.2",
-    "@magicvr/schema-ui-theme": "0.1.2",
-    "@magicvr/schema-ui-ui": "0.1.7",
+    "@magicvr/schema-ui-renderer": "0.3.8",
+    "@magicvr/schema-ui-shell": "0.1.4",
+    "@magicvr/schema-ui-theme": "0.1.4",
+    "@magicvr/schema-ui-ui": "0.1.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }
