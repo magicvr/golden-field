@@ -1,0 +1,42 @@
+# golden-field 消费回归（VP-023 R4 · 团队化槽位）
+# 触发：手动 dispatch；或主仓发布后 repository_dispatch(published)（需主仓配置 GH token + 本仓 API）。
+# 行为：拉取最新 @magicvr/schema-ui-* 与 apps/api @latest → 双端探针全绿 = 消费回归 PASS。
+name: consumer-regression
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [published]
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    env:
+      GOPROXY: https://proxy.golang.org,direct
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Go 组合根冒烟（最新 @latest）
+        run: |
+          go get github.com/magicvr/schema-ui-core/apps/api@latest
+          go run ./cmd/server -dialect sqlite -dsn /tmp/gf-ci.db
+
+      - name: Web 包安装与探针（registry）
+        working-directory: web
+        run: |
+          npm config set "@magicvr:registry" "https://npm.pkg.github.com"
+          npm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.GITHUB_TOKEN }}"
+          pnpm install
+          node probe.mjs
+          node probe-render.mjs
+          node probe-six.mjs
+          node token-check.mjs

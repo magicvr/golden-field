@@ -1,13 +1,15 @@
-// golden-field 组合根（VP-023 产线化实验下游 · 初始化骨架）。
+// golden-field 组合根（VP-023 产线化实验下游 · 双方言参数化：R4）。
 // 消费形态：apps/api/kernel + assembly（B+ 层）+ 模块包——Go 类型推断，无 internal 命名。
-// 目标（R4 交付前）：装配 + 迁移冒烟；server 壳与 config 属 R4 运维路径交付。
+// 用法：golden-field [-dialect sqlite|postgres] [-dsn <conn>|<sqlite-path>]
+//   SQLite 默认（内嵌默认）：golden-field ./data.db
+//   PostgreSQL（生产权威方言）：golden-field -dialect postgres -dsn "postgres://…"
 package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"log"
-	"os"
 	"time"
 
 	"github.com/magicvr/schema-ui-core/apps/api/assembly"
@@ -19,16 +21,25 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		log.Fatal("usage: golden-field <sqlite-path>")
-	}
+	dialect := flag.String("dialect", "sqlite", "sqlite | postgres")
+	dsn := flag.String("dsn", "", "连接串（sqlite = 文件路径；postgres = DSN）")
+	flag.Parse()
 	ctx := context.Background()
 
 	catalog, err := compiled.PersistenceCatalog()
 	if err != nil {
 		log.Fatal("catalog:", err)
 	}
-	st, err := assembly.OpenStore(ctx, kernel.Dialect("sqlite"), os.Args[1], "", catalog)
+	if *dsn == "" {
+		log.Fatal("usage: golden-field [-dialect sqlite|postgres] -dsn <path|conn>")
+	}
+	var path, pgDSN string
+	if *dialect == "postgres" {
+		pgDSN = *dsn
+	} else {
+		path = *dsn
+	}
+	st, err := assembly.OpenStore(ctx, kernel.Dialect(*dialect), path, pgDSN, catalog)
 	if err != nil {
 		log.Fatal("store:", err)
 	}

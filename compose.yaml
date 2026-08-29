@@ -1,0 +1,25 @@
+# golden-field 本地运维样例（VP-023 R4）——包形态下游 compose。
+# 运行：docker compose up -d pg && docker compose build app && docker compose up app
+# 注：web 静态产物容器（构建自 @magicvr/schema-ui-* 骨架）为 go 后正式化，此处留占位。
+services:
+  pg:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: gf-secret
+      POSTGRES_DB: golden
+    ports:
+      - "15432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["-dialect", "postgres", "-dsn", "postgres://postgres:gf-secret@pg:5432/golden?sslmode=disable"]
+    depends_on:
+      - pg
+
+volumes:
+  pg-data:
