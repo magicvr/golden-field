@@ -25,6 +25,14 @@ jobs:
         with:
           node-version: 24
 
+      - name: 启用 pnpm
+        run: corepack enable
+
+      - name: 配置 GH Packages 认证（跨仓读私有包）
+        run: |
+          npm config set "@magicvr:registry" "https://npm.pkg.github.com"
+          npm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.GITHUB_TOKEN }}"
+
       - name: Go 组合根冒烟（最新 @latest）
         run: |
           go get github.com/magicvr/schema-ui-core/apps/api@latest
@@ -35,7 +43,7 @@ jobs:
         run: |
           npm config set "@magicvr:registry" "https://npm.pkg.github.com"
           npm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.GITHUB_TOKEN }}"
-          pnpm install
+          pnpm install --no-frozen-lockfile
           node probe.mjs
           node probe-render.mjs
           node probe-six.mjs

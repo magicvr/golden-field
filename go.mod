@@ -2,7 +2,7 @@ module github.com/magicvr/golden-field
 
 go 1.26
 
-require github.com/magicvr/schema-ui-core/apps/api v0.1.0
+require github.com/magicvr/schema-ui-core/apps/api v0.3.0
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect

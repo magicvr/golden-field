@@ -21,6 +21,8 @@ import (
 )
 
 func main() {
+	// v0.3.0 迁移（按 changelog-breaking-v0.3.0 第 2 步改写）：JoinKeys → JoinIdentifiers
+	_ = kernel.JoinIdentifiers("a", "b")
 	dialect := flag.String("dialect", "sqlite", "sqlite | postgres")
 	dsn := flag.String("dsn", "", "连接串（sqlite = 文件路径；postgres = DSN）")
 	flag.Parse()

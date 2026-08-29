@@ -12,16 +12,16 @@ cmd/server/   Go 组合根（apps/api kernel + assembly + 模块；装配/迁移
 web/          前端骨架（@schema-ui/* tarball 消费 + 主题覆盖 + 探针）
 ```
 
-## 消费占位（R1 移除）
+## 消费实态（registry 语义 · R1 起）
 
 | 通道 | 现状 | 移除条件（VP-023 判据 #1） |
 |------|------|------------------------------|
-| Go | `go.mod` `replace => ../schema-ui-core/apps/api`（v0.0.2 版本符号） | 真实 `go get @vX`（或私有 proxy）实证通过 |
-| npm | `web/package.json` `file:*.tgz`（本地 tarball） | registry 上传 + `pnpm add @ver` 实证通过 |
+| Go | `go.mod` require `apps/api v0.1.0`（公共 proxy · 无 replace） | registry 语义已实证（R1）；随 R5 升 v0.2.0 |
+| npm | `web/package.json` 六包 registry（`@magicvr/schema-ui-*`） | 已实证（R3） |
 
 ## 验证探针
 
-- Go：`go run . <db>` → golden-field kernel=... 装配/迁移冒烟
+- Go：`go run ./cmd/server -dialect sqlite -dsn <db>` → golden-field kernel=... 装配/迁移冒烟
 - Web：`pnpm install` 后 `node probe.mjs` / `probe-render.mjs` / `token-check.mjs`
 
 ## 目标（R5 验收走查）
