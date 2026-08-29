@@ -3,10 +3,14 @@
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "description": "golden-field 前端骨架（VP-023）——@magicvr/schema-ui-* 经 GitHub Packages registry 消费（R1 实证）",
+  "description": "golden-field 前端骨架（VP-023）——六包 registry 消费（R3：lib/theme/ui/shell + renderer 0.2.0）",
   "dependencies": {
+    "@magicvr/schema-ui-lib": "0.1.0",
     "@magicvr/schema-ui-protocol": "0.2.0",
-    "@magicvr/schema-ui-renderer": "0.1.0",
+    "@magicvr/schema-ui-renderer": "0.2.0",
+    "@magicvr/schema-ui-shell": "0.1.0",
+    "@magicvr/schema-ui-theme": "0.1.0",
+    "@magicvr/schema-ui-ui": "0.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }
