@@ -1,4 +1,4 @@
-// golden-web 消费探针：仅经 npm 包（@schema-ui/protocol）调用协议面功能。
+// golden-web 消费探针：仅经 npm 包（@magicvr/schema-ui-protocol）调用协议面功能。
 import {
   APP_MANIFEST_PROTOCOL_VERSION,
   APP_MANIFEST_SUPPORTED_PROTOCOL_VERSIONS,
@@ -6,7 +6,7 @@ import {
   isValidExpression,
   stripPathQuery,
   resolveSchemaUrl,
-} from "@schema-ui/protocol";
+} from "@magicvr/schema-ui-protocol";
 import assert from "node:assert";
 
 assert.equal(APP_MANIFEST_PROTOCOL_VERSION, "2.9");

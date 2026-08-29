@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "version": "0.1.0",
-  "description": "golden-field 前端骨架（VP-023）——@schema-ui/* tarball 消费（R1 占位，registry 实证后切换）",
+  "description": "golden-field 前端骨架（VP-023）——@magicvr/schema-ui-* 经 GitHub Packages registry 消费（R1 实证）",
   "dependencies": {
-    "@schema-ui/protocol": "file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-protocol-0.2.0.tgz",
-    "@schema-ui/renderer": "file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-renderer-0.1.0.tgz",
+    "@magicvr/schema-ui-protocol": "0.2.0",
+    "@magicvr/schema-ui-renderer": "0.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }

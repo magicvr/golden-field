@@ -1,0 +1,3 @@
+minimumReleaseAgeExclude:
+  - '@magicvr/schema-ui-protocol@0.2.0'
+  - '@magicvr/schema-ui-renderer@0.1.0'

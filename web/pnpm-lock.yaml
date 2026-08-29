@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@schema-ui/protocol':
-        specifier: file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-protocol-0.2.0.tgz
-        version: file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-protocol-0.2.0.tgz
-      '@schema-ui/renderer':
-        specifier: file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-renderer-0.1.0.tgz
-        version: file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-renderer-0.1.0.tgz(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@magicvr/schema-ui-protocol':
+        specifier: 0.2.0
+        version: 0.2.0
+      '@magicvr/schema-ui-renderer':
+        specifier: 0.1.0
+        version: 0.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react:
         specifier: ^19.2.0
         version: 19.2.8
@@ -23,13 +23,11 @@ importers:
 
 packages:
 
-  '@schema-ui/protocol@file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-protocol-0.2.0.tgz':
-    resolution: {integrity: sha512-qe0utLpedjDT+Cfy1e71nMlZq1P1eWS2wZexBRCT9QgGyV8UynL9X2Md0Xk2RG5YmlLqoNtLkMuN7LUz3lq3Nw==, tarball: file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-protocol-0.2.0.tgz}
-    version: 0.2.0
+  '@magicvr/schema-ui-protocol@0.2.0':
+    resolution: {integrity: sha512-Y0L15JxpHkVCJFI6blnZKAmcXcGMpavbB/lCJPRMB3fu4a1Tzwvj+cg9KbsFm0xqspzMQpGWohaC62VGtA5Mag==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-protocol/0.2.0/8b8565e3e0b5475afaeffb9668b0a10bff56f360}
 
-  '@schema-ui/renderer@file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-renderer-0.1.0.tgz':
-    resolution: {integrity: sha512-NGYgT3T80MgLrRKqPqG5yp36quDDPrqOr4ksrM0oGQBj6mo8rN7gtrlGKCxUbqWmeOTqx/J5nGv9T2Wnb4Cl7w==, tarball: file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-renderer-0.1.0.tgz}
-    version: 0.1.0
+  '@magicvr/schema-ui-renderer@0.1.0':
+    resolution: {integrity: sha512-Tl0Wk24/gJbD2DQ7vLxWPw08criS9Qa9Vqv8JXil6ehxDJN7tL07dkBzG9T460cAp1xxCfFc50A2hZLMU7wBRg==, tarball: https://npm.pkg.github.com/download/@magicvr/schema-ui-renderer/0.1.0/0bc0d23bf1792e68cde43e2b3bf7f16f04102365}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -48,9 +46,9 @@ packages:
 
 snapshots:
 
-  '@schema-ui/protocol@file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-protocol-0.2.0.tgz': {}
+  '@magicvr/schema-ui-protocol@0.2.0': {}
 
-  '@schema-ui/renderer@file:../../schema-ui-core/apps/web/dist-lib/artifacts/schema-ui-renderer-0.1.0.tgz(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@magicvr/schema-ui-renderer@0.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
