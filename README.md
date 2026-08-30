@@ -41,8 +41,11 @@ web/                    前端消费骨架（@magicvr/schema-ui-* 六包 + 探�
 | `c4d14ea` | VP-024 R3：workflow 免凭据化重构 |
 | `3f2a5c2` | VP-024 R3：pnpm/action-setup 顺序修复 |
 | `235196d` | VP-024 R5：六包终值（冻结面 v1.4.0） |
+| `8631d53` | 2026-08-30：初始化收口（README 终态 · 二进制清理 · pnpm-workspace 终值） |
+| `ba052e7` | 2026-08-30：hosted 首跑修复（pnpm/action-setup 显式 version） |
+| `8ef02e9` | 2026-08-30：收尾清理段加固（trap/kill/wait `|| true` · 显式 exit 0） |
 
 ## 残余与登记（主仓权威口径）
 
-- hosted CI 实触发：首次推送后即可 `workflow_dispatch`；首跑结果登记于主仓 `GOAL-008` E-004。
+- hosted CI 实触发：**2026-08-30 闭环**——`33286154992`（action-setup 版本源 ❌）→ `33286191334`（探针全绿 · 清理段 exit 1 ❌）→ `33286302663` **PASS**（1m9s · 四探针 + `shutdown.complete`）。主仓口径见 `GOAL-008` E-004。
 - 本仓仅作消费实证，不承载目标状态；主仓治理真相源 = `docs/workspaces/workspace-024-distribution-formalization/`。
